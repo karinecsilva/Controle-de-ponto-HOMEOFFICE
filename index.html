@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f9;
+        color: #333;
+        text-align: center;
+        padding: 20px;
+      }
+
+      h1 {
+        color: #4CAF50;
+      }
+
+      .btn {
+        background-color: #4CAF50; /* Verde */
+        border: none;
+        color: white;
+        padding: 15px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 2px;
+        cursor: pointer;
+        border-radius: 12px;
+        transition: background-color 0.3s ease;
+      }
+
+      .btn:hover {
+        background-color: #45a049;
+      }
+
+      .btn-pause {
+        background-color: #ff9800; /* Laranja */
+      }
+
+      .btn-fim {
+        background-color: #f44336; /* Vermelho */
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Controle de Ponto</h1>
+    <p>Registre suas ações de trabalho:</p>
+    
+    <button class="btn" onclick="registrar('inicio')">Iniciar Expediente</button>
+    <button class="btn btn-pause" onclick="registrar('almoco')">Pausa para Almoço</button>
+    <button class="btn" onclick="registrar('retorno_almoco')">Retorno do Almoço</button>
+    <button class="btn btn-fim" onclick="registrar('fim')">Finalizar Expediente</button>
+    
+    <script>
+      // Função que chama o backend Apps Script para registrar as ações
+      function registrar(acao) {
+        google.script.run.registrarAcao(acao);
+        alert("Ação '" + acao + "' registrada com sucesso!");
+      }
+    </script>
+  </body>
+</html>
